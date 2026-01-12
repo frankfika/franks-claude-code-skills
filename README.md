@@ -7,7 +7,10 @@ A collection of useful skills for Claude Code.
 | Skill | Description |
 |-------|-------------|
 | [watermark](./skills/watermark) | Python CLI tool for adding watermarks to PDF, Word, and Excel files |
-| [watermark-pwa](./pwa-watermark) | Web-based PWA tool for batch watermarking (works offline) |
+
+## Related Projects
+
+- [watermark-pwa](https://github.com/frankfika/watermark-pwa) - Browser-based watermark tool with PWA support
 
 ## Installation
 
@@ -79,30 +82,6 @@ python3 skills/watermark/watermark.py -t "Confidential" -d ./docs --overwrite
 - **Safe by default** - creates new files, doesn't modify originals
 - Chinese text support
 - Multiple watermark positions (center, top-left, bottom-right)
-
-### Watermark PWA (Web Tool)
-
-Browser-based watermark tool with PWA support. No installation required.
-
-#### Features
-
-- **Drag & drop** - Drop files or folders directly
-- **Batch processing** - Process entire folders at once
-- **Cross-platform** - Works on Mac, Windows, Linux
-- **Offline support** - Install as desktop app, works offline
-- **Safe** - All processing happens in your browser, no uploads
-
-#### Quick Start
-
-```bash
-cd pwa-watermark
-python3 -m http.server 8000
-# Open http://localhost:8000
-```
-
-Then click the install icon in your browser to install as a desktop app.
-
-See [pwa-watermark/README.md](./pwa-watermark/README.md) for more details.
 
 ## Contributing
 
