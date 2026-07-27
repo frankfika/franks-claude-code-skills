@@ -1,0 +1,4 @@
+interface:
+  display_name: "GitHub 项目推荐文章"
+  short_description: "以第三方视角撰写并打包 GitHub 项目推荐文章"
+  default_prompt: "使用 $github-recommend-wechat 把这个 GitHub 仓库写成一篇第三方推荐视角的公众号文章。"
