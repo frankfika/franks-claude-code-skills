@@ -165,6 +165,23 @@ python3 skills/expense-reimbursement/scripts/expense_reimbursement.py validate .
 这个预测市场的结算规则可信吗？赔率有没有可能被流动性扭曲？
 ```
 
+### 5. GitHub Recommend WeChat - 第三方开源项目推荐文章
+
+把他人的 GitHub 仓库写成有事实依据、可直接发布到微信公众号的中文推荐文章，同时与作者自己的项目发布和 Vibe Coding 系列保持清晰边界。
+
+**功能特点：**
+- 第三方身份：不暗示文章作者创建、维护或代表被推荐项目
+- 事实核查：检查 README、许可证、版本、部署方式、模型 API 与实际门槛
+- 中立推荐：可以表达个人判断，但不替项目号召 Star、关注、注册或加入社区
+- 真实配图：使用仓库、产品和官方来源截图，并添加连续编号与来源
+- 发布交付：配合 `wechat-silicon-editor` 生成 Markdown、HTML、图片目录和 ZIP
+
+**Agent 中使用：**
+```
+用 github-recommend-wechat 写一下这个别人的 GitHub 项目
+把这个开源仓库写成第三方推荐视角的公众号文章，不要写成是我做的
+```
+
 ## 🛠️ 技术架构
 
 ```mermaid
@@ -183,7 +200,7 @@ graph LR
 
 ### 技术栈
 
-- **配置格式**：YAML (skill.yaml)
+- **配置格式**：SKILL.md / YAML (skill.yaml)
 - **实现语言**：Python 3.8+
 - **核心依赖**：
   - PyPDF2 - PDF 处理
@@ -214,9 +231,13 @@ agent-skills/
 │       │   └── manifest-schema.md
 │       └── assets/
 │           └── manifest_template.csv
-│   └── polymarket-analysis/ # Polymarket 预测市场分析技能
-│       ├── SKILL.md       # Codex/Claude 风格技能说明
-│       ├── skill.yaml     # 通用 Agent 技能配置
+│   ├── polymarket-analysis/ # Polymarket 预测市场分析技能
+│   │   ├── SKILL.md       # Codex/Claude 风格技能说明
+│   │   ├── skill.yaml     # 通用 Agent 技能配置
+│   │   └── agents/
+│   │       └── openai.yaml
+│   └── github-recommend-wechat/ # 第三方 GitHub 项目推荐文章
+│       ├── SKILL.md       # 身份边界、核查和写作工作流
 │       └── agents/
 │           └── openai.yaml
 └── .git/                  # Git 仓库
@@ -305,6 +326,8 @@ trigger:
 | 发票去重 | Expense Reimbursement | 识别重复发票并排除汇总 |
 | 预测市场分析 | Polymarket Analysis | 分析 Polymarket 链接哪个选项更可能赢 |
 | 结算规则审查 | Polymarket Analysis | 判断规则公信力、UMA 争议和流动性风险 |
+| 开源项目推荐 | GitHub Recommend WeChat | 将他人的 GitHub 仓库写成公众号推荐文章 |
+| 作者身份隔离 | GitHub Recommend WeChat | 避免把第三方项目写成自己的作品 |
 
 ## 🤝 贡献
 
